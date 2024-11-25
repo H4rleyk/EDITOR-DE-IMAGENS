@@ -1,0 +1,186 @@
+#inputImagem {
+    display: none;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    height: 100vh;
+    justify-content: space-between;
+    text-align: center;
+}
+
+/* Título centralizado no topo */
+header {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5em;
+    color: white;
+}
+
+/* Container principal para filtros, imagem e histórico */
+.main-container {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: space-between; /* Distribui os itens igualmente */
+}
+
+/* Coluna de filtros no lado esquerdo - 1/5 da tela */
+.filters-container {
+    width: 10%;  /* 1/5 da tela */
+    padding: 20px;
+    background-color: #1a1a1a;  /* Cor de fundo para a área de filtros */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 60px;
+    font-size: 12px;
+    color: white;
+}
+
+/* Estilo dos botões e inputs */
+.filters-container input,
+.filters-container button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #1a1a1a;  /* Cor de fundo preta */
+    color: white;                /* Texto branco */
+    border-color: #ccc;         /* Borda cinza para os botões de filtro */
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+
+/* Remover borda para os botões de salvar, exportar e desfazer */
+#salvarImagem, 
+#carregarBotao, 
+#desfazerBotao {
+    border: none;  /* Remove a borda desses botões */
+}
+
+/* Efeito Neon Azul e Roxo Apenas no Hover */
+.filters-container button:hover {
+    background: transparent;  /* Deixa o fundo transparente para o efeito neon */
+    border: 2px solid transparent;  /* Deixa a borda invisível */
+    box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    animation: neonGlow 1.5s linear infinite; /* Animação de brilho */
+}
+
+/* Animação do Brilho Neon Azul e Roxo */
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(0, 0, 255, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(0, 0, 255, 0.8);
+    }
+}
+
+/* Estilo da imagem */
+.image-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;  /* Cor de fundo para a área de imagem */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 1000px; /* Altura fixa para a imagem */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Borda inicial transparente */
+    background-clip: content-box; /* Garantir que a borda do gradiente não cubra o conteúdo */
+}
+
+/* Borda animada com gradiente */
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+    background-size: 400%;
+    z-index: -1;
+    animation: gradientAnimation 15s linear infinite; /* Animação contínua */
+    filter: blur(15px); /* Desfoque da borda */
+}
+
+/* Animação de gradiente contínuo */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Ajustando a visualização da imagem */
+#visualizacaoImagem {
+    max-width: 100%;
+    max-height: 400px; /* Tamanho maior para a imagem */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+/* Galeria de Imagens Editadas */
+.gallery {
+    width: 30%;
+    background-color: #1a1a1a;  /* Cor de fundo para a área de histórico */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 60px;
+    color: white;
+}
+
+#historicoImagens {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: white;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.thumbnail:hover {
+    border-color: #4c6ef5;
+}

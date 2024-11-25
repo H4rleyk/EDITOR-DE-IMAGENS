@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Imagens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>EDITOR DE IMAGENS</h1>
+    </header>
+
+    <div class="main-container">
+        <!-- Coluna para filtros -->
+        <div class="filters-container">
+            <input type="file" id="inputImagem" accept="image/*">
+            <!-- Ícone para carregar imagem -->
+            <button id="carregarBotao">
+                <img src="imagens/exportar.png" alt="Carregar Imagem">
+            </button>
+            <!-- Ícone para desfazer -->
+            <button id="desfazerBotao">
+                <img src="imagens/desfazer.png" alt="Desfazer Filtro">
+            </button>
+            <!-- Ícone para salvar -->
+            <button id="salvarImagem">
+                <img src="imagens/salvar.png" alt="Salvar Imagem">
+            </button>
+            <h2>FILTROS</h2>
+            <div class="filters">
+                <!-- Botões para os filtros -->
+                <button class="filter-btn" id="filtroCinza">Escala de Cinza</button>
+                <button class="filter-btn" id="filtroBrilho">Brilho</button>
+                <button class="filter-btn" id="filtroContraste">Contraste</button>
+                <button class="filter-btn" id="filtroSepia">Sepia</button>
+                <button class="filter-btn" id="filtroSaturacao">Saturação</button>
+                <button class="filter-btn" id="filtroDesfoque">Desfoque</button>
+                <button class="filter-btn" id="filtroInvertido">Invertido</button>
+                <button class="filter-btn" id="filtroVermelho">Vermelho</button>
+                <button class="filter-btn" id="filtroAzul">Azul</button>
+                <button class="filter-btn" id="filtroVerde">Verde</button>
+            </div>
+            
+        </div>
+
+        <!-- Coluna para exibição da imagem -->
+        <div class="image-container">
+            <img id="visualizacaoImagem" src="#" alt="Visualização da Imagem">
+        </div>
+
+        <!-- Galeria de Imagens Editadas -->
+        <div class="gallery">
+            <h2>Histórico de Efeitos</h2>
+            <div id="historicoImagens"></div>
+        </div>
+    </div>
+
+    <!-- Colocando o script ao final para garantir que o DOM esteja carregado -->
+    <script src="script.js"></script>
+</body>
+</html>
